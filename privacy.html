@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="x-rocket-loader" content="false">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy | Nichols Legal PC</title>
 <meta name="description" content="Privacy Policy for the Nichols Legal PC website. How we handle data, analytics, and communications.">
@@ -182,15 +183,73 @@
   }
   .footer-links a:hover { color: rgba(250,249,247,0.8); }
 
+  
+
+  /* ── HAMBURGER ── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; z-index: 200; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: all 0.3s ease; }
+  .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--paper); z-index: 99; flex-direction: column; padding: 40px 32px; overflow-y: auto; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 22px; font-family: "Cormorant Garamond", serif; font-weight: 300; color: var(--ink); text-decoration: none; padding: 18px 0; border-bottom: 0.5px solid var(--rule); display: block; }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu-cta { margin-top: 32px; font-size: 13px !important; font-weight: 500 !important; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper) !important; background: var(--accent); padding: 16px 28px !important; border-radius: 2px; text-align: center; font-family: "DM Sans", sans-serif !important; }
+
+  /* ── TABLET ── */
   @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    .page-header { padding: 100px 24px 48px; }
-    .policy-body { padding: 48px 24px 64px; }
-    .def-item { grid-template-columns: 1fr; gap: 4px; }
-    footer { grid-template-columns: 1fr; padding: 40px 24px; }
-    .footer-links { flex-wrap: wrap; gap: 20px; }
+    nav { padding: 0 24px !important; }
+    .nav-links { display: none !important; }
+    .hamburger { display: flex !important; }
+    footer { grid-template-columns: 1fr !important; padding: 40px 24px !important; gap: 24px !important; }
+    .footer-links { flex-wrap: wrap !important; gap: 16px !important; }
+    /* Page heroes */
+    .page-hero { padding: 100px 24px 48px !important; }
+    .page-hero-inner { grid-template-columns: 1fr !important; gap: 24px !important; padding-top: 40px !important; }
+    /* Content sections */
+    .content-block { padding: 48px 24px !important; }
+    .two-col { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .sticky-label { position: static !important; }
+    /* Grids */
+    .belief-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .recognition-grid { grid-template-columns: 1fr !important; }
+    .topics-grid { grid-template-columns: 1fr 1fr !important; }
+    .articles-section { padding: 40px 24px !important; }
+    .article-card { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .article-card:hover:not(.placeholder) { margin: 0 !important; padding: 36px 0 !important; }
+    /* Pricing */
+    .pricing-grid { grid-template-columns: 1fr !important; }
+    .fee-grid { grid-template-columns: 1fr !important; }
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .contact-methods { grid-template-columns: 1fr !important; }
+    /* CTAs */
+    .cta-band { padding: 56px 24px !important; }
+    .belief-section { padding: 48px 24px !important; }
+    .belief-inner { padding: 0 !important; }
+    /* Misc paddings */
+    div[style*="padding: 96px 80px"] { padding: 56px 24px !important; }
+    div[style*="padding: 72px 80px"] { padding: 48px 24px !important; }
+    div[style*="padding: 80px"] { padding: 48px 24px !important; }
+    div[style*="padding: 56px 80px"] { padding: 40px 24px !important; }
   }
+
+  /* ── MOBILE ── */
+  @media (max-width: 480px) {
+    .section-heading { font-size: 26px !important; }
+    .page-title { font-size: 32px !important; }
+    .cta-heading { font-size: 26px !important; }
+    .hero-pull-quote { font-size: 26px !important; }
+    .timeline-item { grid-template-columns: 24px 1fr !important; gap: 12px !important; }
+    .edu-item { grid-template-columns: 1fr !important; gap: 4px !important; }
+    .edu-detail { text-align: left !important; }
+    .cta-buttons { flex-direction: column !important; align-items: stretch !important; text-align: center !important; }
+    .btn-primary { text-align: center !important; }
+    .recog-item { padding: 18px 20px !important; }
+    .article-meta { flex-direction: row !important; flex-wrap: wrap !important; align-items: flex-start !important; }
+    .policy-body { padding: 40px 24px 56px !important; }
+    .def-item { grid-template-columns: 1fr !important; gap: 4px !important; }
+    .rights-item { padding: 14px 0 14px 16px !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -206,7 +265,21 @@
     <li><a href="pricing.html">Pricing</a></li>
     <li><a href="contact.html" class="nav-cta">Get Started</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#approach" onclick="toggleMenu()">Approach</a>
+  <a href="ai-governance.html" onclick="toggleMenu()">AI Counseling &amp; Governance</a>
+  <a href="index.html#practice" onclick="toggleMenu()">Practice</a>
+  <a href="about.html" onclick="toggleMenu()">About</a>
+  <a href="writing.html" onclick="toggleMenu()">Writing</a>
+  <a href="pricing.html" onclick="toggleMenu()">Pricing</a>
+  <a href="contact.html" class="mobile-menu-cta" onclick="toggleMenu()">Get Started</a>
+</div>
 
 <div class="page-header">
   <div class="page-header-inner">
@@ -434,12 +507,34 @@
     <div class="footer-tagline">Mountain View, California &nbsp;&middot;&nbsp; Licensed to practice in California &nbsp;&middot;&nbsp; &copy; 2026 Nichols Legal PC. Attorney advertising. Content is for informational purposes only and does not constitute legal advice.</div>
   </div>
   <ul class="footer-links">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="ai-governance.html">AI Governance</a></li>
+    <li><a href="index.html#practice">Practice</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="privacy.html">Privacy</a></li>
   </ul>
 </footer>
 
+<script>
+function toggleMenu() {
+  var menu = document.getElementById('mobileMenu');
+  var bars = document.querySelectorAll('.hamburger span');
+  menu.classList.toggle('open');
+  if (menu.classList.contains('open')) {
+    bars[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+    bars[1].style.opacity = '0';
+    bars[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+    document.body.style.overflow = 'hidden';
+  } else {
+    bars[0].style.transform = '';
+    bars[1].style.opacity = '';
+    bars[2].style.transform = '';
+    document.body.style.overflow = '';
+  }
+}
+</script>
 </body>
 </html>
