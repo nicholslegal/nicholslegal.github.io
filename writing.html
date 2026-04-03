@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing & Perspectives | Nichols Legal PC</title>
+<meta name="description" content="Michael Nichols writes on AI governance, health tech regulation, and the legal questions that matter most to fast-moving companies.">
+<meta name="author" content="Michael G. Nichols">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Writing & Perspectives — Michael Nichols">
+<meta property="og:description" content="Articles and thought leadership on AI governance, health tech, fintech regulation, and startup legal strategy.">
+<meta property="og:site_name" content="Nichols Legal PC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Writing & Perspectives — Michael Nichols">
+<meta name="twitter:description" content="Articles on AI governance, health tech regulation, and startup legal strategy.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMWEzYTJhIi8+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSI0MDAiIAogICAgICAgIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNjNGEwNWEiIGxldHRlci1zcGFjaW5nPSIwIj5NTjwvdGV4dD4KPC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0e;
+    --ink-muted: #4a4944;
+    --ink-faint: #8a8880;
+    --paper: #faf9f7;
+    --paper-warm: #f3f1ed;
+    --rule: #e0ddd8;
+    --accent: #1a3a2a;
+    --accent-light: #2d5c44;
+    --gold: #9a7c3a;
+    --gold-light: #c4a05a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 68px;
+    background: rgba(250,249,247,0.92); backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .nav-wordmark {
+    font-family: "Cormorant Garamond", serif; font-size: 17px;
+    font-weight: 400; letter-spacing: 0.04em;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-wordmark span { color: var(--ink-faint); font-style: italic; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 400; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--ink-muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    font-size: 12px !important; font-weight: 500 !important;
+    letter-spacing: 0.1em !important; text-transform: uppercase !important;
+    color: var(--paper) !important; background: var(--accent);
+    padding: 9px 22px; border-radius: 2px; transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent-light) !important; }
+
+  /* HERO */
+  .page-hero {
+    padding-top: 68px;
+    background: var(--paper-warm);
+    border-bottom: 0.5px solid var(--rule);
+    padding-bottom: 64px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .page-hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+  .hero-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(38px, 4.5vw, 58px);
+    font-weight: 300; line-height: 1.1; color: var(--ink);
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s;
+  }
+  .hero-heading em { font-style: italic; color: var(--accent); }
+  .hero-desc {
+    font-size: 17px; font-weight: 300; color: var(--ink-muted);
+    line-height: 1.75;
+    opacity: 0; animation: fadeUp 0.7s ease forwards 0.45s;
+  }
+  .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+  /* SUBSTACK CTA */
+  .substack-bar {
+    background: var(--accent);
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .substack-bar-text {
+    font-size: 14px; font-weight: 300;
+    color: rgba(250,249,247,0.7);
+  }
+  .substack-bar-text strong {
+    color: var(--paper); font-weight: 400;
+  }
+  .substack-btn {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--paper); padding: 9px 20px;
+    border-radius: 2px; text-decoration: none;
+    white-space: nowrap; transition: background 0.2s; flex-shrink: 0;
+  }
+  .substack-btn:hover { background: var(--paper-warm); }
+
+  /* ARTICLES */
+  .articles-section {
+    max-width: 1200px; margin: 0 auto;
+    padding: 72px 80px;
+  }
+  .section-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 40px;
+  }
+
+  /* ARTICLE CARD */
+  .article-list { display: flex; flex-direction: column; border-top: 0.5px solid var(--rule); }
+  .article-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: start;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+  .article-card:hover:not(.placeholder) {
+    background: var(--paper-warm);
+    margin: 0 -80px;
+    padding: 36px 80px;
+  }
+  .article-card.placeholder { cursor: default; opacity: 0.5; }
+  .article-tag {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  }
+  .article-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px; font-weight: 400; color: var(--ink);
+    line-height: 1.25; margin-bottom: 10px;
+  }
+  .article-card:hover:not(.placeholder) .article-title { color: var(--accent); }
+  .article-desc {
+    font-size: 14px; font-weight: 300;
+    color: var(--ink-muted); line-height: 1.65;
+    max-width: 640px;
+  }
+  .article-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+  .article-date {
+    font-size: 12px; font-weight: 300;
+    color: var(--ink-faint); white-space: nowrap;
+  }
+  .article-source {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+    border: 0.5px solid var(--rule);
+    padding: 3px 8px; border-radius: 2px;
+  }
+  .article-arrow {
+    font-size: 18px; color: var(--ink-faint);
+    transition: transform 0.2s, color 0.2s;
+    margin-top: 4px;
+  }
+  .article-card:hover:not(.placeholder) .article-arrow {
+    transform: translateX(5px); color: var(--accent);
+  }
+  .placeholder-label {
+    font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-faint);
+    border: 0.5px solid var(--rule); padding: 3px 10px;
+    border-radius: 2px; display: inline-block; margin-top: 8px;
+  }
+
+  /* TOPICS */
+  .topics-section {
+    background: var(--paper-warm);
+    border-top: 0.5px solid var(--rule);
+    padding: 56px 80px;
+  }
+  .topics-inner { max-width: 1200px; margin: 0 auto; }
+  .topics-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-top: 32px;
+  }
+  .topic-pill {
+    background: var(--paper); border: 0.5px solid var(--rule);
+    padding: 12px 16px; border-radius: 2px;
+    font-size: 13px; font-weight: 400; color: var(--ink-muted);
+    text-align: center;
+  }
+
+  /* CTA */
+  .cta-band {
+    background: var(--accent); padding: 72px 80px; text-align: center;
+  }
+  .cta-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(30px, 3vw, 44px); font-weight: 300;
+    color: var(--paper); line-height: 1.15;
+    max-width: 500px; margin: 0 auto 20px;
+  }
+  .cta-heading em { font-style: italic; color: var(--gold-light); }
+  .cta-sub {
+    font-size: 16px; font-weight: 300;
+    color: rgba(250,249,247,0.65); max-width: 400px;
+    margin: 0 auto 36px;
+  }
+  .btn-primary {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--paper); padding: 14px 32px;
+    border-radius: 2px; text-decoration: none;
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--paper-warm); }
+
+  footer {
+    background: var(--ink); color: var(--paper);
+    padding: 48px 80px; display: grid;
+    grid-template-columns: 1fr auto; align-items: center; gap: 40px;
+  }
+  .footer-wordmark {
+    font-family: "Cormorant Garamond", serif; font-size: 16px;
+    font-weight: 300; color: rgba(250,249,247,0.8); margin-bottom: 6px;
+  }
+  .footer-tagline {
+    font-size: 12px; font-weight: 300;
+    color: rgba(250,249,247,0.35); letter-spacing: 0.04em;
+  }
+  .footer-links { display: flex; gap: 32px; list-style: none; }
+  .footer-links a {
+    font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+    text-transform: uppercase; color: rgba(250,249,247,0.4);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(250,249,247,0.8); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 100px 24px 48px; }
+    .page-hero-inner { grid-template-columns: 1fr; gap: 24px; }
+    .substack-bar { padding: 20px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+    .articles-section { padding: 48px 24px; }
+    .article-card:hover:not(.placeholder) { margin: 0; padding: 36px 0; }
+    .article-card { grid-template-columns: 1fr; gap: 16px; }
+    .article-meta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    .topics-section { padding: 48px 24px; }
+    .topics-grid { grid-template-columns: 1fr 1fr; }
+    .cta-band { padding: 56px 24px; }
+    footer { grid-template-columns: 1fr; padding: 40px 24px; }
+    .footer-links { flex-wrap: wrap; gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-wordmark">Michael Nichols <span>/ Nichols Legal PC</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="ai-governance.html">AI Counseling &amp; Governance</a></li>
+    <li><a href="index.html#practice">Practice</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="writing.html" class="active">Writing</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <div class="eyebrow">Writing &amp; Perspectives</div>
+      <h1 class="hero-heading">On the legal questions<br>that <em>actually matter</em><br>to companies building.</h1>
+    </div>
+    <p class="hero-desc">
+      Writing on <strong>AI governance, health tech regulation, and startup legal strategy</strong> — for founders, executives, and in-house teams navigating fast-moving legal landscapes without slowing down.
+    </p>
+  </div>
+</div>
+
+<!-- SUBSTACK BAR — uncomment when Substack is live, update href to your Substack URL -->
+<!--
+<div class="substack-bar">
+  <p class="substack-bar-text"><strong>Subscribe for new articles</strong> — occasional writing delivered directly, no noise.</p>
+  <a href="https://YOUR-SUBSTACK-URL.substack.com" class="substack-btn">Subscribe on Substack &nbsp;&#8599;</a>
+</div>
+-->
+
+<!-- ARTICLES -->
+<div class="articles-section">
+  <div class="section-label">Articles &amp; Perspectives</div>
+  <p style="font-size: 12px; font-weight: 300; color: var(--ink-faint); font-style: italic; margin-bottom: 32px; line-height: 1.6;">Articles and posts published here and on LinkedIn reflect the author's analysis of legal and regulatory developments. They are for informational purposes only, do not constitute legal advice, and do not create an attorney-client relationship. Readers should not act on this content without seeking counsel from a qualified attorney familiar with their specific circumstances.</p>
+  <div class="article-list">
+
+    <!-- ARTICLE 1 — Live -->
+    <a href="https://www.linkedin.com/pulse/healthcares-ai-timing-problem-when-does-innovation-become-nichols-oaxkc" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">AI Governance &nbsp;&middot;&nbsp; Health Tech</div>
+        <div class="article-title">Healthcare's AI Timing Problem: When Does Innovation Become Expectation?</div>
+        <p class="article-desc">The most consequential AI healthcare question isn't accuracy. It's when AI becomes a standard of care — and what that means for companies building before the standard is formally declared.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn Article</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- ARTICLE 2 — Live -->
+    <a href="https://www.linkedin.com/pulse/big-red-button-personal-data-deletion-coming-michael-nichols" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">Privacy &nbsp;&middot;&nbsp; California Regulation</div>
+        <div class="article-title">A "Big Red Button" for Personal Data Deletion Coming to California</div>
+        <p class="article-desc">California's Delete Act gives residents unprecedented control over data broker records — and signals how individual data rights may evolve nationally.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn Article</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: Snap/TikTok product liability -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_productliability-techaccountability-socialmedia-share-7421993170223239168-ZDOE" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">Product Liability &nbsp;&middot;&nbsp; AI Governance</div>
+        <div class="article-title">Apps Without Hats? Doing the Safety Dance.</div>
+        <p class="article-desc">Snap and TikTok settled on the eve of trial over claims that app developers deliberately engineer compulsive behavior. The question being asked: is engagement architecture a product defect? Will boards start treating it as governance risk?</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: Davos AI governance -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_davos-aigovernance-ailaw-share-7418795607534002176-DX_Y" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">AI Governance &nbsp;&middot;&nbsp; Regulatory Strategy</div>
+        <div class="article-title">AI Governance Is a Strategic Risk on a Collision Course</div>
+        <p class="article-desc">While Davos debates frameworks, in-house legal teams face a three-way tug-of-war between federal directives, state innovation, and international standards. AI governance isn't an IT issue — it belongs in the boardroom.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: CES 2026 -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_ces-2026-from-hype-and-hope-to-here-and-share-7416223537742524416-QuKa" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">AI Governance &nbsp;&middot;&nbsp; Product Counsel</div>
+        <div class="article-title">CES 2026: From Hype and Hope to Here and Hardwired</div>
+        <p class="article-desc">AI no longer shows up as a feature — it's integrated infrastructure. When AI shifts from innovation to infrastructure, it gets held to infrastructure standards. Three questions every company should be able to answer now.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: Accuracy vs Reliability -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_accuracy-is-no-longer-the-primary-ai-risk-share-7415470584769269760-JVwr" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">AI Governance &nbsp;&middot;&nbsp; Legal Operations</div>
+        <div class="article-title">Accuracy Is No Longer the Primary AI Risk. Reliability Is.</div>
+        <p class="article-desc">As AI tools move deeper into legal and compliance workflows, the risk profile is shifting. Hallucinations are understood. The harder problem: outputs that sound coherent but shift in meaning when reviewed under scrutiny or in discovery.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: AI Copyright -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_unresolved-ai-copyright-law-isnt-pausing-share-7414899226129653760-PL2G" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">AI Governance &nbsp;&middot;&nbsp; Intellectual Property</div>
+        <div class="article-title">Unresolved AI Copyright Law Isn't Pausing for Anyone</div>
+        <p class="article-desc">The foundational questions of AI copyright — training data, output ownership, liability — remain unsettled. Companies building AI products are making consequential decisions without the benefit of clear law.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: FTC/Rytr -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_a-subtle-ai-regulation-shift-just-happened-share-7414516714496778240-EWu9" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">Regulatory Strategy &nbsp;&middot;&nbsp; AI Enforcement</div>
+        <div class="article-title">A Subtle AI Regulation Shift Just Happened</div>
+        <p class="article-desc">The FTC vacated its own consent order against Rytr — one of the first instances of an enforcement order being reversed based on shifting AI policy. Mere capability is no longer misconduct. A new line of defense is emerging.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+    <!-- POST: NY RAISE Act -->
+    <a href="https://www.linkedin.com/posts/michaelgnichols_aigovernance-airegulation-riseact-share-7414132587365036032-Q8oJ" target="_blank" rel="noopener" class="article-card">
+      <div>
+        <div class="article-tag">Regulatory Strategy &nbsp;&middot;&nbsp; AI Governance</div>
+        <div class="article-title">New York Just Made a Consequential Move on AI Governance</div>
+        <p class="article-desc">New York's RAISE Act makes NY the second state after California to adopt a comprehensive AI safety framework. Together, NY and CA are setting current benchmarks for frontier AI governance without waiting for federal policy.</p>
+      </div>
+      <div class="article-meta">
+        <div class="article-source">LinkedIn</div>
+        <div class="article-arrow">&#8594;</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- TOPICS -->
+<div class="topics-section">
+  <div class="topics-inner">
+    <div class="section-label">Topics covered</div>
+    <div class="topics-grid">
+      <div class="topic-pill">AI Governance</div>
+      <div class="topic-pill">Health Tech Regulation</div>
+      <div class="topic-pill">Startup Legal Strategy</div>
+      <div class="topic-pill">Fintech Compliance</div>
+      <div class="topic-pill">Privacy &amp; Data Rights</div>
+      <div class="topic-pill">Venture Financings</div>
+      <div class="topic-pill">Product Liability</div>
+      <div class="topic-pill">Regulatory Fragmentation</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2 class="cta-heading">A question about<br>something <em>you read?</em></h2>
+  <p class="cta-sub">Reach out directly. Happy to discuss how any of these issues apply to your company.</p>
+  <a href="contact.html" class="btn-primary">Get in Touch</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-wordmark">Nichols Legal PC</div>
+    <div class="footer-tagline">Mountain View, California &nbsp;&middot;&nbsp; Licensed to practice in California &nbsp;&middot;&nbsp; &copy; 2026 Nichols Legal PC. Attorney advertising. Content is for informational purposes only and does not constitute legal advice.</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="ai-governance.html">AI Governance</a></li>
+    <li><a href="index.html#practice">Practice</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+</footer>
+
+<script>
+(function() {
+  var u = "michael", d = "michaelnichols.com", e = u + "@" + d;
+  var links = document.querySelectorAll("a[data-email]");
+  links.forEach(function(a) { a.href = "mailto:" + e; });
+})();
+</script>
+
+</body>
+</html>
